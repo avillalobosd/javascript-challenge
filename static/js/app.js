@@ -116,7 +116,27 @@ d3.select("#filter-btn").on("click", function () {
         });
 
     }
+    if(date==""){
+        console.log("SHAPE VACIO")
+    } else if(filtrado==0){
+        let datosNuevos = tableData.map((tableData) => {
+            if (tableData.datetime==date){
+                nuevaTabla.push(tableData)
+            }
+    
+        });
+        filtrado=1
+    } else {
+        nuevaTablaF=nuevaTabla
+        nuevaTabla=[]
+        let datosNuevos = nuevaTablaF.map((tableData) => {
+            if (tableData.datetime==date){
+                nuevaTabla.push(tableData)
+            }
+    
+        });
 
+    }
     llenarDatos(nuevaTabla)
 
 });
